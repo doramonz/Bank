@@ -18,3 +18,10 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: build
+        run: mvn -B package
+      - name: Docker build
+        run: |
+          docker login -u ${{ secrets.DOCKER_ID }} -p ${{ secrets.DOCKER_PS }}
+
+        
